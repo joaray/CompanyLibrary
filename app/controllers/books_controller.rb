@@ -79,7 +79,7 @@ before_action :set_user, except: [:index]
   end
 
   def set_book
-      @book = Book.find_by(params[:id])
+      @book = Book.find(params[:id])
   end
 
   def set_user
