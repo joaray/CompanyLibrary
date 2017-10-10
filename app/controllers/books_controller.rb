@@ -79,7 +79,10 @@ before_action :set_user, except: [:index]
   end
 
   def set_book
-      @book = Book.find(params[:id])
+    @book = Book.find_by(id: params[:id])
+    if @book.blank?
+      redirect_to root_url
+    end
   end
 
   def set_user
