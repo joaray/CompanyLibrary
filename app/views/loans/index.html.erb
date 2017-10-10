@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2 text-center">
+    </div>
+
+    <div class="col-xs-8 text-center">
+      <div class="list">
+        <h2><strong>All Loans:</strong></h2>
+          <p><% @loans.each do |loan| %>
+            <div class="element">
+            <% if loan.book.nil?%>
+              <%= "Deleted book" %>
+            <%else%>
+              <%= loan.book.title %>
+            <%end%>
+
+            <% if loan.status==1%>
+              <%= "was borrowed by "%>
+            <% else %>
+              <%= "was returned by "%>
+            <%end%>
+
+            <% if loan.user.nil?%>
+              <%= "deleted user" %>
+            <%else%>
+              <%= loan.user.email %>
+            <%end%>
+
+            <%= "at #{loan.created_at}"%>
+          </div>
+        </p>
+        <%end%>
+      </div>
+
+    <div class="col-xs-2 text-center">
+    </div>
+
+  </div>
+</div>

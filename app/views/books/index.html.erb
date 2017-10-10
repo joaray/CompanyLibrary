@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4 text-center">
+    </div>
+
+    <div class="col-xs-4 text-center">
+      <div class="list">
+        <%if user_signed_in? %>
+        <h2><strong>All Books:</strong></h2>
+          <% @books.each do |book|%>
+          <div class="element">
+            <p><%= link_to "#{book.title} #{book.author} #{book.publishing_date}",
+            book_path(book)%></p>
+          </div>
+          <%end%>
+        <%else%>
+          <h2><strong>See you later! </br>
+            Back soon!</strong></h2>
+        <%end%>
+      </div>
+    </div>
+
+    <div class="col-xs-4 text-center">
+    </div>
+
+  </div>
+</div>
