@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       post 'borrow', to: 'books#borrow'
       post 'return', to: 'books#return'
+      post 'deactive', to: 'books#deactive'
     end
   end
 

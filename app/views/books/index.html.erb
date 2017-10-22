@@ -1,27 +1,31 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 text-center">
+    <div class="col-xs-3 text-center">
     </div>
 
-    <div class="col-xs-4 text-center">
-      <div class="list">
-        <%if user_signed_in? %>
-        <h2><strong>All Books:</strong></h2>
-          <% @books.each do |book|%>
-          <div class="element">
-            <p><%= link_to "#{book.title} #{book.author} #{book.publishing_date}",
-            book_path(book)%></p>
-          </div>
-          <%end%>
-        <%else%>
-          <h2><strong>See you later! </br>
-            Back soon!</strong></h2>
-        <%end%>
+    <div class="col-xs-6 text-center">
+      <div class="element">
+        <h2><strong><%= @book.title%><strong></h2>
+          <h3>Written by: <%= @book.author%></h3>
+          <h4>published: <%= @book.publishing_date%></h4>
+
+            <% if @book.active?%>
+              <%= link_to 'Edit', edit_book_path %>
+              <%= link_to 'Deactive', deactive_book_path(@book), method: :post, data: { confirm: 'Are you sure?' }%>
+                <% if @book.to_borrow?%>
+                  <%= link_to 'Borrow', borrow_book_path(@book), method: :post%>
+                <%end%>
+
+                <% if @book.to_return?%>
+                  <%= link_to 'Return', return_book_path(@book), method: :post%>
+                <%end%>
+            <%else%>
+                <p>Book is inactive</p>
+            <%end%>
       </div>
     </div>
 
-    <div class="col-xs-4 text-center">
+    <div class="col-xs-3 text-center">
     </div>
-
   </div>
 </div>

@@ -9,16 +9,18 @@
           <h3>Written by: <%= @book.author%></h3>
           <h4>published: <%= @book.publishing_date%></h4>
 
-            <%= link_to 'Edit', edit_book_path %>
-            <%= link_to 'Destroy', @book, method: :delete, data: { confirm: 'Are you sure?' }%>
-            <% if @book.to_borrow?%>
-              <button class="btn btn-basic" type="submit">
-                <%= link_to 'Borrow', borrow_book_path(@book), method: :post%>
-              </button>
-            <%end%>
+            <% if @book.active?%>
+              <%= link_to 'Edit', edit_book_path %>
+              <%= link_to 'Deactive', deactive_book_path(@book), method: :post, data: { confirm: 'Are you sure?' }%>
+                <% if @book.to_borrow?%>
+                  <%= link_to 'Borrow', borrow_book_path(@book), method: :post%>
+                <%end%>
 
-            <% if @book.to_return?%>
-              <%= link_to 'Return', return_book_path(@book), method: :post%>
+                <% if @book.to_return?%>
+                  <%= link_to 'Return', return_book_path(@book), method: :post%>
+                <%end%>
+            <%else%>
+                <p>Book is inactive</p>
             <%end%>
       </div>
     </div>

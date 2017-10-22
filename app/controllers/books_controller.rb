@@ -31,8 +31,8 @@ before_action :set_user, except: [:index]
     end
   end
 
-  def destroy
-    @book.destroy
+  def deactive
+    @book.update(book_status: false)
     redirect_to root_url
   end
 
@@ -80,9 +80,9 @@ before_action :set_user, except: [:index]
 
   def set_book
     @book = Book.find_by(id: params[:id])
-    if @book.blank?
-      redirect_to root_url
-    end
+  if @book.blank?
+    redirect_to root_url
+  end
   end
 
   def set_user

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010190849) do
+ActiveRecord::Schema.define(version: 20171022131137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171010190849) do
     t.string "publishing_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "book_status", default: true
   end
 
   create_table "loans", force: :cascade do |t|
