@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_many :loans
+  has_many :loans, dependent: :destroy
 
   STATUS_BORROWED = 1
   STATUS_RETURNED = 0
