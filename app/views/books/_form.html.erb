@@ -5,15 +5,15 @@
 		</div>
 
 		<div class="col-xs-4 text-center">
-			<div class="contact">
+			<div class="element">
 				<%= form_for [@book] do |book|%>
 				</br>
-				<p> <%= book.label :title %>
-    				<%= book.text_field :title %></p>
-				<p> <%= book.label :author %>
-						<%= book.text_field :author %></p>
-				<p> <%= book.label :publishing_date %>
-	  				<%= book.date_field :publishing_date%></p>
+				<h4> <%= book.label :title %></h4>
+    		<p>	<%= book.text_field :title %></p>
+				<h4> <%= book.label :author %></h4>
+				<p>	<%= book.text_field :author %></p>
+				<h4> <%= book.label :publishing_date %></h4>
+	  		<p>	<%= book.date_field :publishing_date%></p>
 				<p>	<%= book.submit 'Submit', class:'btn btn-default'%>
 						<button class="btn btn-default" type="submit"><%= link_to "Cancel", root_url %></button>
 				<%end%>

@@ -4,13 +4,13 @@
     </div>
 
     <div class="col-xs-6 text-center">
-      <div class="element">
-        <h2><strong><%= @book.title%><strong></h2>
+      <h2><%= @book.title%></h2>
+        <div class="element">        
           <h3>Written by: <%= @book.author%></h3>
           <h4>published: <%= @book.publishing_date%></h4>
 
             <% if @book.active?%>
-              <%= link_to 'Edit', edit_book_path %>      
+              <%= link_to 'Edit', edit_book_path %>
                 <% if @book.to_borrow?%>
                   <%= link_to 'Borrow', borrow_book_path(@book), method: :post%>
                   <%= link_to 'Deactive', deactive_book_path(@book), method: :post, data: { confirm: 'Are you sure?' }%>

@@ -4,11 +4,10 @@
     </div>
 
     <div class="col-xs-8 text-center">
-      <div class="list">
-        <h2><strong>All Loans:</strong></h2>
-          <p><% @loans.each do |loan| %>
+      <h2>All Loans:</h2>
+        <% @loans.each do |loan| %>
             <div class="element">
-            <% if loan.book.nil?%>
+            <h4><% if loan.book.nil?%>
               <%= "Deleted book" %>
             <%else%>
               <%= loan.book.title %>
@@ -27,10 +26,10 @@
             <%end%>
 
             <%= "at #{loan.created_at}"%>
+</h4>
           </div>
-        </p>
+
         <%end%>
-      </div>
 
     <div class="col-xs-2 text-center">
     </div>
