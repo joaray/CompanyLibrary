@@ -16,9 +16,9 @@ class Book < ApplicationRecord
     loans.empty? || loans.last.status == STATUS_RETURNED
   end
 
-  def to_return?
+  def to_return?(current_user)
     unless loans.empty?
-      loans.last.status == STATUS_BORROWED
+      loans.last.status == STATUS_BORROWED && loans.last.user == current_user
     end
   end
 

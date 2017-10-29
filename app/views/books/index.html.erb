@@ -11,14 +11,14 @@
             <h4><%= link_to "#{book.title} #{book.author} #{book.publishing_date}",
             book_path(book)%>
             <%unless book.active?%>
-          /Book is inactive<%end%>
-        <%if book.to_return?%>
-    /Book is borrowed<%end%>  </h4>
+              /Book is inactive<%end%>
+              <%unless book.to_borrow?%>
+              /Book is borrowed<%end%>  </h4>
           </div>
           <%end%>
         <%else%>
-          <h2><strong>See you later! </br>
-            Back soon!</strong></h2>
+          <h2><See you later! </br>
+            Back soon!</h2>
         <%end%>
       </div>
 

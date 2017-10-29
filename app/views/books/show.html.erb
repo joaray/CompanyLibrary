@@ -5,7 +5,7 @@
 
     <div class="col-xs-6 text-center">
       <h2><%= @book.title%></h2>
-        <div class="element">        
+        <div class="element">
           <h3>Written by: <%= @book.author%></h3>
           <h4>published: <%= @book.publishing_date%></h4>
 
@@ -16,7 +16,7 @@
                   <%= link_to 'Deactive', deactive_book_path(@book), method: :post, data: { confirm: 'Are you sure?' }%>
                 <%end%>
 
-                <% if @book.to_return?%>
+                <% if @book.to_return?(current_user)%>
                   <%= link_to 'Return', return_book_path(@book), method: :post%>
                 <%end%>
             <%else%>
